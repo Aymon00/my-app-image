@@ -12,6 +12,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+      with:
+        repository: Aymon00/my-app-image
+        token: ${{ secrets.TOKEN }}  # استخدام التوكن
 
     - name: Set up AWS CLI
       uses: aws-actions/configure-aws-credentials@v1
@@ -25,6 +28,6 @@ jobs:
       with:
         host: ${{ secrets.EC2_HOST }}                # عنوان EC2
         username: ${{ secrets.EC2_USER }}            # اسم المستخدم لـ EC2
-        key: ${{ secrets.AWS_SSH_KEY }}               # مفتاح SSH الخاص بـ EC2
+        password: ${{ secrets.EC2_PASSWORD }}         # كلمة المرور الخاصة بـ EC2
         script: |
           sudo yum update -y

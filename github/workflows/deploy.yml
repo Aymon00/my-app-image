@@ -12,12 +12,15 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+      with:
+        repository: Aymon00/my-app-image
+        token: ${{ secrets.TOKEN }}
 
     - name: SSH to EC2 and update system
       uses: appleboy/ssh-action@v0.1.2
       with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ${{ secrets.EC2_USER }}
-        password: ${{ secrets.EC2_PASSWORD }}  # استخدم كلمة المرور هنا
+        host: ${{ secrets.EC2_HOST }}               # استخدم اسم المضيف الخاص بـ EC2
+        username: ${{ secrets.EC2_USER }}           # اسم المستخدم لـ EC2
+        password: ${{ secrets.EC2_PASSWORD }}        # كلمة المرور لـ EC2
         script: |
           sudo yum update -y

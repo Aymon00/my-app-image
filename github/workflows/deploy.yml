@@ -18,6 +18,6 @@ jobs:
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
-        key: ${{ secrets.EC2_PRIVATE_KEY }}
+        password: ${{ secrets.EC2_PASSWORD }}  # استخدم كلمة المرور هنا
         script: |
           sudo yum update -y

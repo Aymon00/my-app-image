@@ -14,7 +14,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: SSH to EC2 and update system
-      uses: appleboy/ssh-action@v0.1.2
+      uses: appleboy/ssh-action@v2
       with:
         host: ${{ secrets.EC2_HOST }}                # عنوان EC2
         username: ${{ secrets.EC2_USER }}            # اسم المستخدم لـ EC2
